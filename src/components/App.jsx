@@ -24,8 +24,9 @@ export class App extends Component {
   
 
   render() {
-    let { good, neutral, bad } = this.state;
+    
     let options = Object.keys(this.state);
+    let total = Object.values(this.state).reduce((a, b) => a + b, 0);
     
     return (
       <Container>
@@ -47,7 +48,8 @@ export class App extends Component {
                 {option}: {this.state[option]}</Review> 
               )
             })
-          }
+            }
+            <li>Total: { total}</li>
           </Reviews>
         </Statistics>
 
