@@ -27,6 +27,7 @@ export class App extends Component {
     
     let options = Object.keys(this.state);
     let total = Object.values(this.state).reduce((a, b) => a + b, 0);
+    let positiveFeedback = this.state.good ? this.state.good / total * 100 : 0;
     
     return (
       <Container>
@@ -49,7 +50,8 @@ export class App extends Component {
               )
             })
             }
-            <li>Total: { total}</li>
+            <li>Total: {total}</li>
+            <li>Positive feedback: { positiveFeedback.toFixed(0)}%</li>
           </Reviews>
         </Statistics>
 
