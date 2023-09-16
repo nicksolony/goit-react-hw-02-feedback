@@ -26,6 +26,7 @@ export const FeedbackOption = styled.li`
     padding:15px;
     border-radius: 4px;
     box-shadow: 2px 2px 0 0 #919191;
+    text-transform: capitalize;
 
     :hover {
         background-color: #919191;

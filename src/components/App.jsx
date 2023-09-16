@@ -10,16 +10,34 @@ export class App extends Component {
     bad: 0
   };
 
+  handleReview = (option) => {
+    
+    let id = option.target.innerHTML;
+    
+    this.setState(prevState => {
+      return {
+        ...prevState,
+        [id]: prevState[id] + 1
+      };
+    });
+  };
+  
+
   render() {
     let { good, neutral, bad } = this.state;
+    let options = Object.keys(this.state);
     
     return (
       <Container>
         <Title>Please leave feedback</Title>
         <FeedbackOptions>
-          <FeedbackOption>Good</FeedbackOption>
-          <FeedbackOption>Neutral</FeedbackOption>
-          <FeedbackOption>Bad</FeedbackOption>
+          {options.map((option) => {
+            return (
+              <FeedbackOption key={option} onClick={this.handleReview}>{option}</FeedbackOption> 
+              )
+          })
+
+          }
         </FeedbackOptions>
         <Statistics>
           <h2>Statistics</h2>
