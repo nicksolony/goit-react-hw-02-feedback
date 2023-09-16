@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Container, Title } from "./App.styled";
+import {  } from "./App.styled";
+import { Section } from "./Section/Section";
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Statistics } from "./Statistics/Statistics";
 
@@ -32,15 +33,15 @@ export class App extends Component {
     let positivePercentage = this.state.good ? this.state.good / total * 100 : 0;
     
     return (
-      <Container>
-        <Title>Please leave feedback</Title>
+      <>
+        <Section title="Please leave feedback" >
         <FeedbackOptions options={options} onLeaveFeedback={this.onLeaveFeedback}>
 
         </FeedbackOptions>
         <Statistics options={options} total={total} positivePercentage={positivePercentage} state={this.state}>
         </Statistics>
-
-      </Container>  
+        </Section>
+      </>  
     )
   };
 };
