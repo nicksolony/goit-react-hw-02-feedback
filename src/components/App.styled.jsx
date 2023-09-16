@@ -39,15 +39,5 @@ export const FeedbackOption = styled.li`
     }
 `;
 
-export const Statistics = styled.div`
-`;
 
-export const Reviews = styled.ul`
-    list-style-type: none;
-    padding:0;
-`;
-
-export const Review = styled.li`
-    text-transform: capitalize;
-`;
 

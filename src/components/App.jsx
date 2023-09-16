@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Container, Title, FeedbackOptions, FeedbackOption, Statistics, Reviews, Review } from "./App.styled";
+import { Container, Title, FeedbackOptions, FeedbackOption } from "./App.styled";
+import { Statistics } from "./Statistics/Statistics";
 
 
 export class App extends Component {
@@ -7,10 +8,10 @@ export class App extends Component {
   state = {
     good: 0,
     neutral: 0,
-    bad: 0
+    bad: 0,
   };
 
-  handleReview = (option) => {
+  onLeaveFeedback = (option) => {
     
     let id = option.target.innerHTML;
     
@@ -27,7 +28,7 @@ export class App extends Component {
     
     let options = Object.keys(this.state);
     let total = Object.values(this.state).reduce((a, b) => a + b, 0);
-    let positiveFeedback = this.state.good ? this.state.good / total * 100 : 0;
+    let positivePercentage = this.state.good ? this.state.good / total * 100 : 0;
     
     return (
       <Container>
@@ -35,24 +36,12 @@ export class App extends Component {
         <FeedbackOptions>
           {options.map((option) => {
             return (
-              <FeedbackOption key={option} onClick={this.handleReview}>{option}</FeedbackOption> 
+              <FeedbackOption key={option} onClick={this.onLeaveFeedback}>{option}</FeedbackOption> 
               )
             })
           }
         </FeedbackOptions>
-        <Statistics>
-          <h2>Statistics</h2>
-          <Reviews>
-            {options.map((option) => {
-            return (
-              <Review key={option}>
-                {option}: {this.state[option]}</Review> 
-              )
-            })
-            }
-            <li>Total: {total}</li>
-            <li>Positive feedback: { positiveFeedback.toFixed(0)}%</li>
-          </Reviews>
+        <Statistics options={options} total={total} positivePercentage={positivePercentage} state={this.state}>
         </Statistics>
 
       </Container>  
