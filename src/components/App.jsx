@@ -1,5 +1,6 @@
 import { Component } from "react";
-import { Container, Title, FeedbackOptions, FeedbackOption } from "./App.styled";
+import { Container, Title } from "./App.styled";
+import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
 import { Statistics } from "./Statistics/Statistics";
 
 
@@ -33,13 +34,8 @@ export class App extends Component {
     return (
       <Container>
         <Title>Please leave feedback</Title>
-        <FeedbackOptions>
-          {options.map((option) => {
-            return (
-              <FeedbackOption key={option} onClick={this.onLeaveFeedback}>{option}</FeedbackOption> 
-              )
-            })
-          }
+        <FeedbackOptions options={options} onLeaveFeedback={this.onLeaveFeedback}>
+
         </FeedbackOptions>
         <Statistics options={options} total={total} positivePercentage={positivePercentage} state={this.state}>
         </Statistics>

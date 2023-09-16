@@ -1,5 +1,4 @@
-import { Container } from "components/App.styled"
-import { Reviews, Review } from "./Statistics.styled"
+import { Container, Reviews, Review } from "./Statistics.styled"
 
 
 export const Statistics = ({options, total, positivePercentage, state}) => {
