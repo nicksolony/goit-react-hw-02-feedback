@@ -1,5 +1,5 @@
 import { Component } from "react";
-import { Container, FeedbackOptions, FeedbackOption } from "./App.styled";
+import { Container, Title, FeedbackOptions, FeedbackOption, Statistics, Reviews } from "./App.styled";
 
 
 export class App extends Component {
@@ -12,15 +12,23 @@ export class App extends Component {
 
   render() {
     let { good, neutral, bad } = this.state;
-
+    
     return (
       <Container>
-        <h2 className="title">Please leave feedback</h2>
+        <Title>Please leave feedback</Title>
         <FeedbackOptions>
           <FeedbackOption>Good</FeedbackOption>
           <FeedbackOption>Neutral</FeedbackOption>
           <FeedbackOption>Bad</FeedbackOption>
         </FeedbackOptions>
+        <Statistics>
+          <h2>Statistics</h2>
+          <Reviews>
+            <li>Good: {good}</li>
+            <li>Neutral: {neutral}</li>
+            <li>Bad: {bad}</li>
+          </Reviews>
+        </Statistics>
 
       </Container>  
     )

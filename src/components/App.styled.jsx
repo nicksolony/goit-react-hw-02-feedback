@@ -4,10 +4,13 @@ export const Container = styled.div`
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    align-items: left;
     font-size: 40px;
     color: #010101;
+    padding: 40px;
+`;
+
+export const Title = styled.h2`
 `;
 
 export const FeedbackOptions = styled.ul`
@@ -33,6 +36,14 @@ export const FeedbackOption = styled.li`
         color: #ffffff;
         background-color: #000000;
     }
+`;
 
+export const Statistics = styled.div`
+
+`;
+
+export const Reviews = styled.ul`
+    list-style-type: none;
+    padding:0;
 `;
 
